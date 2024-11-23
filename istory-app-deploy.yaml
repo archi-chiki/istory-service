@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app:  istory
+        app: istory
     spec:
       initContainers:
         - name: check-mysql-ready
@@ -28,7 +28,7 @@ spec:
                     'until mysqladmin ping -u dangtong -p${MYSQL_PASSWORD} -h mysql-svc.default; do echo waiting for database; sleep 2; done;']
       containers:
         - name:  istory
-          image:  dangtong/istory
+          image:  archichiki/istory
           envFrom:
             - configMapRef:
                 name: istory-app-config
